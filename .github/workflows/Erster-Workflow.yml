@@ -1,16 +1,27 @@
 name: MeinErsterWorkflow
 
-on: push
+on: [push, pull_request]
 # on: [push] so kann man mindestens 1 oder mehr trigger hinzufügen.
 
 jobs:
-  job_1:
-    # jobs muss angelegt werden.
-    runs-on: ubuntu-latest
+  # jobs muss angelegt werden.
+  changed_job:
     # job_1 kann auch anders heißen.
-    steps:
+    runs-on:
+      ubuntu-latest
       # die OS auf der es laufen soll.
-      - name: cooler Step-Name
-        # wieviele schritte er ausführen soll.
-        run: echo "Hallo Welt"
-      # Name vom run/anweisung die er ausühren soll.
+    steps:
+      # wieviele schritte er ausführen soll.
+      - name: Abschied
+        # Name vom run/anweisung die er ausühren soll.
+        run: echo "Bye Bye"
+        # Anweisung selbst
+        # Wenn alle Steps/Schritte ausgeführt sind, ist der Job automatisch abgeschlossen.
+
+  zweiter-job:
+    needs: [changed_job]
+    # needs: legt fest, dass ein Job erst ausgeführt wird, nachdem ein anderer Job erfolgreich abgeschlossen wurde. Er definiert die Reihenfolge der Job-Ausführung.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Abschied
+        run: echo "Bye Bye"
