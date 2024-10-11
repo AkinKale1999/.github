@@ -18,10 +18,17 @@ jobs:
         # Anweisung selbst
         # Wenn alle Steps/Schritte ausgeführt sind, ist der Job automatisch abgeschlossen.
 
+      - name: Heutiges Datum und Uhrzeit
+        run: date
+        # Gibt aktuelles datum und uhrzeit aus 
+
   zweiter-job:
     needs: [changed_job]
     # needs: legt fest, dass ein Job erst ausgeführt wird, nachdem ein anderer Job erfolgreich abgeschlossen wurde. Er definiert die Reihenfolge der Job-Ausführung.
     runs-on: ubuntu-latest
     steps:
       - name: Abschied
-        run: echo "Bye Bye"
+        run: echo "Hello World"
+
+      - name: Heutiges Datum und Uhrzeit
+        run: date
