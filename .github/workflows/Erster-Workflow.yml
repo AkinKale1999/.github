@@ -1,0 +1,16 @@
+name: MeinErsterWorkflow
+
+on: push
+# on: [push] so kann man mindestens 1 oder mehr trigger hinzufügen.
+
+jobs:
+  job_1:
+    # jobs muss angelegt werden.
+    runs-on: ubuntu-latest
+    # job_1 kann auch anders heißen.
+    steps:
+      # die OS auf der es laufen soll.
+      - name: cooler Step-Name
+        # wieviele schritte er ausführen soll.
+        run: echo "Hallo Welt"
+      # Name vom run/anweisung die er ausühren soll.
